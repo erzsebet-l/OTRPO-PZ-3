@@ -1,0 +1,19 @@
+$bg-dark: #222;
+// $bg-dark: darkblue;
+$lightness-step: 6%;
+$text-light: whitesmoke;
+$top-bar-bg: #343a40;
+$top-bar-text: white;
+$border-color: #6c757d;
+$button-bg: #adb5bd;
+$button-text: #1e1d1d;
+$card-shadow: rgba(0, 0, 0, 0.5);
+$card-border: #495057;
+$accent-color: #fcd581;
+$label-text: black;
+$color-btn: #f4d35e;
+
+@mixin card-background($index) {
+    $lighten-color: lighten($bg-dark, $lightness-step * $index); 
+    background-color: $lighten-color;
+}

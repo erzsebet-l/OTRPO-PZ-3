@@ -1,0 +1,312 @@
+// ----------------------------------------
+//   КОНФИГУРАЦИЯ Bootstrap (должна быть первой)
+// ----------------------------------------
+@use "bootstrap" with (
+  $grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+    wide: 1500px,
+    ultrawide: 1700px
+  ),
+
+  $container-max-widths: (
+    sm: 750px,
+    md: 1000px,
+    lg: 1150px,
+    xl: 1350px,
+    xxl: 1420px,
+    wide: 1450px,
+    ultrawide: 1650px
+  )
+);
+
+// ----------------------------------------
+//   КАСТОМНЫЕ ПЕРЕМЕННЫЕ И МИКСИНЫ
+// ----------------------------------------
+@import "custom";
+
+
+// ----------------------------------------
+//   ADAPTIVE PADDINGS
+// ----------------------------------------
+
+// xs
+@media (max-width: 575.98px) {
+  .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}
+
+// sm
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+// ≥ md
+@media (min-width: 768px) {
+  .container {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+}
+
+
+// ----------------------------------------
+//                 NAVBAR
+// ----------------------------------------
+nav.header {
+  background-color: $top-bar-bg;
+  color: $top-bar-text;
+  border-bottom: 3px solid $border-color;
+  padding: 0.5rem 1rem;
+
+  .logo img {
+    width: 60px;
+    height: 65px;
+    cursor: pointer;
+  }
+
+  .navbar-text {
+    font-weight: bold;
+    color: $text-light;
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  .navbar-toggler {
+    border: none;
+    background: transparent;
+  }
+
+  .upload-btn {
+    background-color: $button-bg;
+    color: $button-text;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'MedievalSharp', cursive;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lighten($button-bg, 10%);
+    }
+  }
+
+  .collapse .upload-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+
+// ----------------------------------------
+//                 MAIN
+// ----------------------------------------
+.container {
+  flex: 1;
+
+  .text {
+    margin: 0 !important;
+  }
+
+  .row .col {
+    @for $i from 0 through 9 {
+      &:nth-child(#{$i + 1}) .card {
+        @include card-background($i);
+      }
+    }
+  }
+}
+
+.card {
+  color: $text-light;
+  border-radius: 5px;
+  box-shadow: 0 15px 20px $card-shadow;
+  display: flex;
+  flex-direction: column;
+
+  .btn-detail {
+    background-color: $color-btn;
+    width: 100%;
+  }
+
+  .btn-detail:hover {
+    background-color: #fcba04;
+    color: $text-light;
+  }
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  line-clamp: 7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.col {
+  margin-top: 50px !important;
+}
+
+html,
+body {
+  height: 100% !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  background-color: $bg-dark !important;
+  color: $text-light !important;
+  font-family: 'MedievalSharp', cursive, Arial, sans-serif !important;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .btn-detail {
+    margin-top: auto;
+  }
+}
+
+.badge {
+  background-color: $accent-color;
+  color: $button-text;
+  font-size: 14px;
+  font-family: 'MedievalSharp', Arial, sans-serif !important;
+}
+
+
+// ----------------------------------------
+//                 FOOTER
+// ----------------------------------------
+.bottom-bar {
+  background-color: $top-bar-bg;
+  color: $top-bar-text;
+  width: 100%;
+  border-top: 3px solid $border-color;
+  flex-shrink: 0;
+  font-family: 'MedievalSharp', cursive, Arial, sans-serif;
+  margin-top: 100px;
+
+  .col-12.col-md-auto {
+    margin-right: 30px;
+  }
+
+  .social-link img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: $text-light;
+    padding: 3px;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .author {
+    font-size: 1rem;
+    margin-left: 30px;
+  }
+}
+
+
+// ----------------------------------------
+//                 TOASTS
+// ----------------------------------------
+.toast {
+  background: #f9f9f9;
+  color: #2e2e2e;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+
+  .toast-header {
+    background: #ededed;
+    color: #3a3a3a;
+    border-bottom: 1px solid #d3d3d3;
+
+    .btn-close {
+      filter: invert(0.4);
+    }
+  }
+
+  .toast-body {
+    padding: 1rem;
+    color: #333333;
+  }
+}
+
+
+// ----------------------------------------
+//                 ADAPTIVE (Cards)
+// ----------------------------------------
+@media (max-width: 1000px) {
+  .cards-container .card {
+    width: 100%;
+  }
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 1700px) {
+  .row-cols-wide-7 > * {
+    flex: 0 0 auto;
+    width: calc(100% / 7);
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+}
+
+
+// ----------------------------------------
+//                 MODALS
+// ----------------------------------------
+.modal {
+  border-width: 2px;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+
+// ----------------------------------------
+//                 POPOVER
+// ----------------------------------------
+.popover {
+  color: $label-text;
+  font-family: 'MedievalSharp', cursive, Arial, sans-serif;
+  border-color: #2b2b2b;
+}
+
+.popover-header {
+  color: $label-text;
+  font-family: 'MedievalSharp', cursive, Arial, sans-serif;
+  border-color: #2b2b2b;
+  border-width: 2px;
+}
