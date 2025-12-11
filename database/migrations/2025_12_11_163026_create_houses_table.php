@@ -20,6 +20,7 @@ class CreateHousesTable extends Migration
             $table->string('text', 255);
             $table->string('modaltext', 255);
             $table->dateTime('date');
+            $table->timestamps();
         });
     }
 
