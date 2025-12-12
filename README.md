@@ -1,61 +1,69 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+Лабораторная работа №3
+Использование MVC-фреймворка
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Подготовка окружения
 
-## About Laravel
+1.	Установите node.js в вашей операционной системе. https://nodejs.org/ru/
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+2.	Установите PHP 7.4 в вашей операционной системе. https://www.php.net/manual/ru/install.php Убедитесь, что PATH операционной системы по ключу ‘php’ указывает путь к интерпретатору. Команда “php -v” в консоли/терминале должна показывать версию PHP
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+3.	Вы можете использовать PHPStorm для написания кода либо другую IDE с поддержкой php 7.4.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+4.	Установите Composer https://getcomposer.org/doc/00-intro.md 
 
-## Learning Laravel
+5.	Создайте отдельную директорию для выполнения лабораторной работы. Инициализируйте git для отправки изменений кода в личный репозиторий.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+6.	Используя Composer, установите демо-приложение Laravel 8 https://laravel.com/docs/8.x#installation-via-composer Выполните “php artisan serve” и проверьте работу Laravel.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+7.	Перенесите настройки NPM, WebPack из предыдущей лабораторной работы в это приложение. Разместите SCSS/JS исходники в директории “resources”.
 
-## Laravel Sponsors
+8.	Настройте WebPack (при помощи Laravel Mix) для корректной сборки Bootstrap и ваших собственных стилей. Скомпилированные JS и CSS должны размещаться в директории “public” фреймворка
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+9.	Убедитесь, что все ресурсы собираются по команде и при изменении исходных файлов верстки. 
 
-### Premium Partners
+10.	Опционально: для организации веб-сервера вы можете использовать Docker (при помощи Laravel Sail ), OpenServer или LAMP-виртуальную машину VirtualBox при помощи Vagrant и Laravel Homestead
+Выполнение задания
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
 
-## Contributing
+Используйте 5 объектов  и верстку Bootstrap из предыдущей лабораторной работы.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Убедитесь, что файлы изображений хранятся в директории /storage/ laravel.
 
-## Code of Conduct
+Реализуйте новый функционал:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+●	При помощи миграций создайте таблицу в базе данных sqlite (можно использовать mysql, postgresql и другие совместимые СУБД, но создание таблиц должно быть через миграции) для хранения данных об объектах вашего варианта. Поля БД должны быть названы в стиле snake_case в нижнем регистре, согласно правилам именования
 
-## Security Vulnerabilities
+●	Реализуйте eloquent модель для работы с данными объекта. Приведите поля БД типа даты при помощи мутаторов. Протестируйте создание объекта при помощи laravel tinker.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+●	Реализуйте контроллер с действиями index, create, store, edit, update, show, destroy. Реализуйте соответствующие пути в routes/web.php. Правила именования. 
 
-## License
+●	Данные в компоненте Modal с более подробной информацией о вашем объекте отобразите в отдельном blade-представлении и действии контроллера show.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+●	При нажатии на кнопку “Добавить” перенаправьте на страницу создания нового объекта, где создайте форму для заполнения полей. Реализуйте валидацию данных на стороне HTML-формы (средствами html5 и bootstrap), а также на стороне контроллера. 
+
+●	Реализуйте действие по редактированию объекта (используйте ту же blade-форму, что и при редактировании). Реализуйте загрузку изображений с сохранением и изменением размеров картинки под параметры верстки.
+
+●	Убедитесь, что все CRUD-операции для каждого объекта корректно работают.
+
+
+Критерии оценки
+
+Базовый уровень:
+●	Исходники Bootstrap, jQuery и собственные стили собираются через Laravel Mix
+●	Использованы миграции для создании таблицы объектов.
+●	Все объекты хранятся в БД и выводятся списком на странице приложения при помощи моделей, контроллеров и blade-шаблонов.
+●	При нажатии на объект можно перейти на детальную страницу с доп.информацией (действие show контроллера).
+●	Объекты можно удалять.
+●	Соблюдаются Правила именования роутов и действий контроллера и правила именования таблицы БЛ
+
+
+Расширенный уровень:
+●	Критерии базового уровня
+●	В Eloquent модели реализованы мутаторы для отдельных полей.
+●	Реализована форма добавления и редактирования объекта.
+●	Данные формы валидируются на стороне контроллера при помощи Validation Rules.
+●	Объекты можно удалять, используя Soft Deletes
+
+
+Справочные материалы:
+●	Видеокурс Coder’s Tape пошагово показывает выполнение всех шагов этой лабораторной работы в первых 11 видео плейлиста https://www.youtube.com/playlist?list=PLpzy7FIRqpGC8Jk6gyWdSVdxCVXZAsenQ 
