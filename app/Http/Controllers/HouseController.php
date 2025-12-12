@@ -10,12 +10,12 @@ class HouseController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function index()
     {
-        $house = House::find(1);
-        return view('index', compact(['house']));
+        $houses = House::all();
+        return view('houses', compact(['houses']));
     }
 
     /**
@@ -43,11 +43,11 @@ class HouseController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\House  $house
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function show(House $house)
-    {
-        //
+    {  
+        return view('show', compact('house'));
     }
 
     /**
