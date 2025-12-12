@@ -14,13 +14,14 @@ class CreateHousesTable extends Migration
     public function up()
     {
         Schema::create('houses', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name', 255);
-            $table->string('image_url', 255);
-            $table->string('text', 255);
-            $table->string('modaltext', 255);
-            $table->dateTime('date');
-            $table->timestamps();
+            $table->increments('id'); 
+            $table->string('name', 100000); // чей дом
+            $table->string('image_url', 100000); // фото герба
+            $table->string('text', 100000); // краткая информация
+            $table->string('motto', 100000); // девиз
+            $table->string('castle', 100000); // замок
+            $table->string('detail_text', 100000); // подробная информация
+            $table->timestamps(); // даты создания/изменения автоматически
         });
     }
 
@@ -29,6 +30,7 @@ class CreateHousesTable extends Migration
      *
      * @return void
      */
+
     public function down()
     {
         Schema::dropIfExists('houses');
