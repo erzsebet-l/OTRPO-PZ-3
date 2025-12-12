@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class House extends Model
 {
@@ -12,7 +13,8 @@ class House extends Model
         'name',
         'image_url',
         'text',
-        'modaltext',
-        'date'
+        'motto',
+        'castle',
+        'detail_text'
     ];
 }
