@@ -12,3 +12,5 @@ $(function () {
         console.log('TOAST показан');
     });
 });
+
+

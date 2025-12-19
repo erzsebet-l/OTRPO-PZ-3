@@ -15,21 +15,18 @@ class CreateHousesTable extends Migration
     {
         Schema::create('houses', function (Blueprint $table) {
             $table->increments('id'); 
-            $table->string('name', 100000); // чей дом
-            $table->string('image_url', 100000); // фото герба
-            $table->string('text', 100000); // краткая информация
-            $table->string('motto', 100000); // девиз
-            $table->string('castle', 100000); // замок
-            $table->string('detail_text', 100000); // подробная информация
+            $table->string('name', 1000); // чей дом
+            $table->string('image_url', 1000); // фото герба
+            $table->string('text', 10000); // краткая информация
+            $table->string('motto', 1000); // девиз
+            $table->string('castle', 1000); // замок
+            $table->longText('detail_text'); // подробная информация
             $table->timestamps(); // даты создания/изменения автоматически
+
+             // Для soft deletes
+            $table->softDeletes();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
 
     public function down()
     {
