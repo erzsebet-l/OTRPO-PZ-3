@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Дома игры престолов</title>
-        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.0/css/all.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="{{ mix('css/style.css') }}">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дома игры престолов</title>
 
-    <body>
-        <!-- header -->
-        @include('layouts.header')
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.0/css/all.css">
 
-        <!-- content -->
-        <main class="flex-grow-1 py-4">
-            @yield('content')
-        </main>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- footer -->
-        @include('layouts.footer')
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ mix('css/style.css') }}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Header -->
+    @include('components.header')
 
 
-        <script src="{{ mix('js/main.js') }}"></script>
-        @stack('scripts')
-    </body>
+    <!-- Main Content -->
+    <main class="flex-grow-1 py-4">
+        @yield('content')
+    </main>
+
+    <!-- Footer -->
+    @include('components.footer')
+
+    <!-- JS -->
+    <script src="{{ mix('js/main.js') }}"></script>
+    @stack('scripts')
+</body>
 </html>
